@@ -2,26 +2,35 @@ package com.impact.cli;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
+
 import java.util.concurrent.Callable;
 
 @Command(name = "impact-cli", mixinStandardHelpOptions = true, version = "1.0.0",
-        description = "A tiny CLI that prints 'impact' in ASCII")
+        description = "A CLI that prints 'impact.com' in ASCII")
 public class Main implements Callable<Integer> {
 
-    @Command(name = "banner", description = "Print ASCII 'impact'")
+    @Command(name = "banner", description = "Print ASCII 'impact.com'")
     static class Banner implements Callable<Integer> {
         @Override
         public Integer call() {
             String banner = String.join("\n",
-                "  ___                              _   ",
-                " |_ _| _ __ ___    __ _   _ __    | |_ ",
-                "  | | | '_ ` _ \\  / _` | | '_ \\   | __|",
-                "  | | | | | | | || (_| | | |_) |  | |_ ",
-                " |___||_| |_| |_| \\__,_| | .__/    \\__|",
-                "                         |_|           ",
-                "                impact                 "
+                " /$$                                               /$$    ",
+                "|__/                                              | $$    ",
+                " /$$ /$$$$$$/$$$$   /$$$$$$   /$$$$$$   /$$$$$$$ /$$$$$$  ",
+                "| $$| $$_  $$_  $$ /$$__  $$ |____  $$ /$$_____/|_  $$_/  ",
+                "| $$| $$ \\ $$ \\ $$| $$  \\ $$  /$$$$$$$| $$        | $$    ",
+                "| $$| $$ | $$ | $$| $$  | $$ /$$__  $$| $$        | $$ /$$",
+                "| $$| $$ | $$ | $$| $$$$$$$/|  $$$$$$$|  $$$$$$$  |  $$$$/",
+                "|__/|__/ |__/ |__/| $$____/  \\_______/ \\_______/   \\___/  ",
+                "                  | $$                                    ",
+                "                  | $$                                    ",
+                "                  |__/                                    "
             );
+
             System.out.println(banner);
+            System.out.println();
+            System.out.println("Hello, my name is Mahir.");
+            System.out.println("I'm a second-year Software Engineering student at UVic.");
             return 0;
         }
     }
@@ -35,7 +44,7 @@ public class Main implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        System.out.println("Usage: banner");
+        System.out.println("Run with `banner` to see impact.com in ASCII");
         return 0;
     }
 }
